@@ -1,0 +1,10 @@
+html {
+  background-color: #8294c4;
+}
+input {
+  height: 2em;
+}
+
+textarea {
+  resize: none;
+}
