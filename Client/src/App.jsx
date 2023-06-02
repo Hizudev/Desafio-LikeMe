@@ -14,25 +14,25 @@ export default function App() {
   const [galerySwitch, setGalerySwitch] = useState(false);
 
   const getPosts = async () => {
-    const response = await axios.get("/");
+    const response = await axios.get("/api");
     setPosts(response.data.result);
     setGalerySwitch(true);
   };
 
   const addPost = async (titulo, img, descripcion) => {
     const newPost = { titulo, img, descripcion };
-    await axios.post("/posts", newPost);
+    await axios.post("/api/posts", newPost);
     getPosts();
   };
 
   const deletePost = async (id) => {
-    await axios.delete(`/posts/${id}`);
+    await axios.delete(`/api/posts/${id}`);
     getPosts();
   };
 
   const getLike = async (id, likes) => {
     const i = { likes: likes + 1 };
-    await axios.put(`/posts/${id}`, i);
+    await axios.put(`/api/posts/${id}`, i);
     getPosts();
   };
 
